@@ -5,7 +5,7 @@ html, body {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #ddd;
+  background-color: #f0f0f0; 
   line-height: 1.65;
 }
 
@@ -21,12 +21,21 @@ body {
 
 .sidebar-satu {
   flex: 1;
+  background-color: lightcyan;
+  padding: 10px;
 }
 
 .kolom-utama {
   flex: 2;
 }
 
+.kolom-utama img {
+  width: 100%;
+  margin: 10px 0;
+}
+
 .sidebar-dua {
   flex: 1;
+  background-color: lightgoldenrodyellow;
+  padding: 10px;
 }
