@@ -12,4 +12,4 @@ define("NAMA_SITUS", "WebsiteKu.com");
 define("TAHUN_PENDIRIAN", 2023);
 
 echo "<br>Selamat datang di " . NAMA_SITUS . ", situs yang didirikan pada tahun " . TAHUN_PENDIRIAN . ".";
-?>
+?> 
