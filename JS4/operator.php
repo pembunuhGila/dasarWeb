@@ -27,6 +27,9 @@ $a *= $b;
 $a /= $b;
 $a %= $b;
 
+$hasilIdentik = $a === $b;
+$hasilTidakIdentik = $a !== $b;
+
 echo "Hasil penjumlahan $a + $b = $hasilTambah <br>";
 echo "Hasil pengurangan $a - $b = $hasilKurang <br>";
 echo "Hasil perkalian $a * $b = $hasilKali <br>";
@@ -57,3 +60,8 @@ echo "Hasil pengurangan dengan assignment $a -= $b = $a <br>";
 echo "Hasil perkalian dengan assignment $a *= $b = $a <br>";
 echo "Hasil pembagian dengan assignment $a /= $b = $a <br>";
 echo "Sisa hasil bagi dengan assignment $a %= $b = $a <br>";
+
+echo "<br>";
+
+echo "Hasil identik $a === $b = $hasilIdentik <br>";
+echo "Hasil tidak identik $a !== $b = $hasilTidakIdentik <br>";
