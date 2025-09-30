@@ -10,6 +10,12 @@
         echo $listdosen[2] . "<br>";
         echo $listdosen[0] . "<br>";
         echo $listdosen[1] . "<br>";
+
+        // menggunakan for loop
+        for ($i = 0; $i < count($listdosen); $i++) {
+            echo $listdosen[$i] . "<br>";
+        }
+        
         ?>
     </body>
 </html>
