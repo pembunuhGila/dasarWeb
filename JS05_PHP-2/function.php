@@ -7,4 +7,5 @@ function perkenalan() {
 }
 
 perkenalan();
+perkenalan();
 ?>
