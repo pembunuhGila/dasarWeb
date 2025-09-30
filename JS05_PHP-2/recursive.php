@@ -5,5 +5,5 @@ function tampilkanAngka (int $jumlah, int $indeks = 1) {
         tampilkanAngka($jumlah, $indeks + 1);
     }
 }
-tampilkanAngka(20)
+tampilkanAngka(20);
 ?>
