@@ -5,10 +5,9 @@ function perkenalan($nama, $salam) {
     echo "Perkenalkan, nama saya ".$nama."<br>";
     echo "Senang berkenalan dengan Anda<br>";
 }
-
 perkenalan("Hamdana", "Hallo");
 
-echo "<br>";
+echo "<hr>";
 
 $saya = "Zaki";
 $ucapanSalam = "Selamat pagi";
