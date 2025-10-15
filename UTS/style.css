@@ -1,0 +1,275 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;900&display=swap');
+
+/* Reset default styling browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling untuk body (Dark Mode Spotify) */
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    /* Transisi agar perubahan warna body saat ganti genre terlihat halus */
+    transition: background-color 0.5s ease, background-image 0.5s ease; 
+    color: #ffffff; /* Teks default putih */
+    min-height: 100vh; 
+}
+
+/* Container utama */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    padding: 30px 0;
+    text-align: center;
+    border-bottom: none; 
+    margin-bottom: 20px; 
+}
+
+/* Judul Utama */
+h1 {
+    font-size: 3.5em; 
+    margin-bottom: 5px;
+    font-weight: 900; 
+    letter-spacing: -1px; 
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+/* Garis Pembatas di Header (seperti di gambar) */
+.header-divider {
+    border: none;
+    border-top: 1px solid #404040; /* Warna abu-abu gelap */
+    margin: 20px auto 40px auto;
+    width: 80%; 
+}
+
+/* Featured Section (Untuk bagian atas dan bawah home page) */
+.featured-section {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.featured-section h2 {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: left; 
+    color: #ffffff;
+}
+
+/* ************************************************* */
+/* MUSIC RECOMMENDATION GRID STYLING                 */
+/* ************************************************* */
+
+/* Grid Card */
+.music-grid {
+    display: grid;
+    /* Gunakan 4 kolom di desktop untuk tampilan Spotify yang lebar */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Card Rekomendasi (Minimalis) */
+.music-card {
+    border: none; 
+    padding: 15px; 
+    transition: background-color 0.3s ease;
+    border-radius: 8px; 
+    background-color: rgba(24, 24, 24, 0.5); /* Card default sedikit transparan gelap */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* Efek hover pada card */
+.music-card:hover {
+    background-color: rgba(40, 40, 40, 0.7); /* Card sedikit lebih terang saat hover */
+    cursor: pointer;
+    transform: translateY(-2px); 
+}
+
+/* Area Gambar Card */
+.card-image {
+    width: 100%;
+    height: 180px; 
+    overflow: hidden;
+    background: #404040; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px; 
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* Konten Card */
+.card-content {
+    padding: 10px 0 0 0;
+}
+
+.band-name {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    color: #ffffff; 
+}
+
+.song-name {
+    font-size: 1em;
+    opacity: 0.8;
+    margin-bottom: 8px;
+    font-weight: 400;
+    color: #b3b3b3; 
+}
+
+.description {
+    font-size: 0.9em;
+    line-height: 1.5;
+    opacity: 0.6; 
+    color: #b3b3b3;
+}
+
+/* Tombol Kembali (Hijau Khas Spotify) */
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    border: none; 
+    border-radius: 50px; 
+    background: #1DB954; 
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #1ed760;
+    transform: scale(1.03);
+}
+
+/* Section yang bisa disembunyikan */
+.section {
+    display: none;
+}
+
+/* Section yang aktif */
+.section.active {
+    display: block;
+}
+
+/* ************************************************* */
+/* TEMA WARNA PER GENRE (Menggunakan Gradient)       */
+/* ************************************************* */
+
+/* TEMA INDEX (Home Page - Menggunakan gradasi Hitam, Abu, dan Putih) */
+.theme-index {
+    /* Gradasi: Hitam (#121212) -> Abu-abu gelap (#333333) -> Abu-abu terang (#777777) */
+    background: linear-gradient(to bottom, #121212 0%, #333333 40%, #505050 80%, #777777 100%);
+    color: #ffffff; 
+}
+
+
+/* ===== TEMA KURASI KHUSUS (Coklat Hangat/Tan Gradient) ===== */
+.theme-kurasi {
+    /* Gradient yang lebih halus */
+    background: linear-gradient(to bottom, #4a3e34 0%, #121212 20%, #121212 100%);
+    color: #ffffff; 
+}
+
+.theme-kurasi header h1 {
+    color: #d1b892; 
+}
+
+/* ===== TEMA JAZZ (Deep Purple Dark Gradient) ===== */
+.theme-jazz {
+    background: linear-gradient(to bottom, #4e1b7c 0%, #121212 20%, #121212 100%);
+    color: #ffffff;
+}
+
+.theme-jazz header h1 {
+    color: #c99fff;
+}
+
+/* ===== TEMA INDIE ALTERNATIVE (Deep Green Dark Gradient) ===== */
+.theme-indie {
+    background: linear-gradient(to bottom, #2d4e1b 0%, #121212 20%, #121212 100%);
+    color: #ffffff;
+}
+
+.theme-indie header h1 {
+    color: #7fffd4;
+}
+
+/* ===== TEMA POP (Deep Pink Dark Gradient) ===== */
+.theme-pop {
+    background: linear-gradient(to bottom, #4e1b3a 0%, #121212 20%, #121212 100%);
+    color: #ffffff;
+}
+
+.theme-pop header h1 {
+    color: #ff9ff3;
+}
+
+/* ===== TEMA R&B & SOUL (Deep Indigo/Ungu Gelap Gradient) ===== */
+.theme-rnb {
+    /* Gradien ungu ke hitam, lebih mewah dari EDM */
+    background: linear-gradient(to bottom, #400040 0%, #121212 20%, #121212 100%); 
+    color: #ffffff;
+}
+
+.theme-rnb header h1 {
+    color: #ffc0cb; /* Pink muda/soft untuk kontras yang mewah */
+}
+
+/* ===== TEMA ROCK (Merah Marun Gelap/Dark Maroon) ===== */
+.theme-rock {
+    background: linear-gradient(to bottom, #800000 0%, #121212 20%, #121212 100%); 
+    color: #ffffff;
+}
+
+.theme-rock header h1 {
+    color: #ff6347; /* Tomato red untuk kontras */
+}
+
+/* ************************************************* */
+/* RESPONSIVE DESIGN (Mobile First)                */
+/* ************************************************* */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    
+    .subtitle {
+        font-size: 1em;
+    }
+    
+    .music-grid {
+        /* Kembali ke 1 kolom di mobile agar konten lebih besar */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    
+    /* Atur ulang padding container untuk mobile */
+    .container {
+        padding: 15px;
+    }
+}
