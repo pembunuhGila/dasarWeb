@@ -1,29 +1,36 @@
-// Fungsi untuk menampilkan halaman genre tertentu dan mengganti tema
 function showGenre(genre) {
-    // Sembunyikan semua section
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
         section.classList.remove('active');
-    });
-
-    // Tampilkan section yang dipilih
+        }
+    );
     document.getElementById(genre).classList.add('active');
-
-    // Ganti tema warna body sesuai genre (class CSS)
     document.body.className = 'theme-' + genre;
 }
 
-// Fungsi untuk kembali ke halaman index dan tema awal
 function showIndex() {
-    // Sembunyikan semua section
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
         section.classList.remove('active');
-    });
-
-    // Tampilkan section index
+        }
+    );
     document.getElementById('index').classList.add('active');
-
-    // Kembalikan tema ke default (index)
     document.body.className = 'theme-index';
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetch(".html")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Gagal memuat footer: ${response.statusText}`);
+            }
+            return response.text();
+        }
+    )
+        .then(data => {
+            document.body.insertAdjacentHTML('beforeend', data);
+        }
+    )
+        .catch(error => console.error("Gagal memuat footer:", error));
+    }
+);
