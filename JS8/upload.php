@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST["submit"])){
-    $targetdir = "uploads/"; //Direktori tujuan untuk menyimpan file
+    $targetdir = "uploads/"; 
     $targetfile = $targetdir . basename($_FILES["myfile"]["name"]);
     $fileType = strtolower(pathinfo($targetfile, PATHINFO_EXTENSION));
 
@@ -11,6 +11,8 @@ if(isset($_POST["submit"])){
 
         if(move_uploaded_file($_FILES["myfile"]["tmp_name"], $targetfile)){
             echo "File berhasil diunggah.";
+            echo "<br>";
+            echo "Thumbnail: <br><img src='" . $targetfile . "' style='width: 200px; height: auto;'>"; 
         } else {
             echo "Gagal mengunggah file.";
         }
