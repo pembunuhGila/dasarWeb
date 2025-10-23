@@ -13,6 +13,9 @@ body {
     transition: background-color 0.5s ease, background-image 0.5s ease; 
     color: #ffffff;
     min-height: 100vh; 
+    /* Tambahan untuk Sticky Footer */
+    display: flex; 
+    flex-direction: column; 
 }
 
 /* Container utama */
@@ -20,6 +23,8 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
+    /* Membuat container mengisi ruang yang tersisa */
+    flex-grow: 1; 
 }
 
 /* Header */
@@ -63,7 +68,7 @@ h1 {
     font-size: 2em;
     font-weight: 700;
     margin-bottom: 30px;
-    text-align: left; 
+    text-align: center; /* DIUBAH: Membuat teks header rata tengah */
     color: #ffffff;
 }
 
@@ -71,9 +76,19 @@ h1 {
 /* Grid Card */
 .music-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    /* DIUBAH: Default 4 kolom untuk layar besar */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 30px;
     margin-top: 40px;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Media Query untuk menjaga responsivitas di layar kecil */
+@media (max-width: 1200px) {
+    .music-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
 }
 
 /* Card Rekomendasi (Minimalis) */
@@ -178,13 +193,13 @@ h1 {
 
 
 /* ===== TEMA Playlist KHUSUS (Coklat Hangat/Tan Gradient) ===== */
-.theme-kurasi {
+.theme-khusus {
     /* Gradient yang lebih halus */
     background: linear-gradient(to bottom, #4a3e34 0%, #121212 20%, #121212 100%);
     color: #ffffff; 
 }
 
-.theme-kurasi header h1 {
+.theme-khusus header h1 {
     color: #d1b892; 
 }
 
@@ -239,19 +254,238 @@ h1 {
     color: #ff6347; /* Tomato red untuk kontras */
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER DENGAN GRADIASI ===== */
 .main-footer {
-    text-align: center;
-    padding: 30px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.9em;
-    color: #cccccc;
-    background: #121212;
-    margin-top: 110px;
+  text-align: center;
+  padding: 40px 0 30px 0;
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #cccccc;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent; /* biar ikut gradasi body */
+  /* Tambahan untuk Sticky Footer */
+  margin-top: auto; 
 }
 
-.main-footer p {
-    margin: 0;
-    letter-spacing: 0.5px;
-    background-color: #121212;
+/* Warna text dinamis berdasarkan tema */
+.theme-index .main-footer p {
+  color: #dddddd;
+}
+
+.theme-khusus .main-footer p {
+  color: #d1b892;
+}
+
+.theme-jazz .main-footer p {
+  color: #d1b2ff;
+}
+
+.theme-pop .main-footer p {
+  color: #ffb6e0;
+}
+
+.theme-rock .main-footer p {
+  color: #ff8c8c;
+}
+
+.theme-rnb .main-footer p {
+  color: #f8c2ff;
+}
+
+.theme-indie .main-footer p {
+  color: #b4ffdc;
+}
+
+.theme-kurasi .main-footer p {
+  color: #e8d6b8;
+}
+
+/* Hover efek ringan */
+.main-footer p:hover {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+/* ===== TAMBAHAN: STYLE UNTUK CRUD (Daftar Lagu) ===== */
+.music-table {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.table-music {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.table-music th, .table-music td {
+    border: 1px solid #2a2a2a;
+    padding: 12px;
+    text-align: center;
+}
+
+.table-music th {
+    background-color: #2c2c2c;
+    font-weight: 700;
+    color: #1DB954;
+    text-transform: uppercase;
+}
+
+.table-music td {
+    font-size: 0.95em;
+}
+
+.table-music img.thumb {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Link Edit / Hapus */
+.table-music a {
+    color: #1DB954;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.table-music a:hover {
+    text-decoration: underline;
+    color: #1ed760;
+}
+
+/* Tombol Tambah Lagu */
+.btn-tambah {
+    display: inline-block;
+    margin-top: 20px;
+    background: #1DB954;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.btn-tambah:hover {
+    background: #1ed760;
+    transform: scale(1.05);
+}
+
+/* Form CRUD */
+form {
+    background: rgba(28, 28, 28, 0.8);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    width: 80%;
+    margin: 0 auto;
+    color: #fff;
+}
+
+form input[type="text"],
+form textarea,
+form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border-radius: 8px;
+    border: none;
+    background: #2c2c2c;
+    color: #fff;
+    font-size: 1em;
+}
+
+form input[type="submit"] {
+    background: #1DB954;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background: #1ed760;
+}
+
+/* Tombol kembali */
+a.back-link {
+  display: inline-block;
+  color: #1DB954;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1em;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+a.back-link:hover {
+  color: #1ed760;
+  transform: translateX(-4px);
+}
+
+a.back-link::before {
+  content: "← ";
+  font-weight: bold;
+  color: #1DB954;
+}
+
+/* Tombol tambah */
+.btn-tambah {
+  display: inline-block;
+  background: #1DB954;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn-tambah:hover {
+  background: #1ed760;
+  transform: scale(1.05);
+}
+
+/* Styling form agar serasi */
+.form-box input[type="text"],
+.form-box textarea,
+.form-box select,
+.form-box input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 20px 0;
+  border: none;
+  border-radius: 6px;
+  background: #2c2c2c;
+  color: #fff;
+  font-size: 1em;
+  outline: none;
+}
+
+.form-box select {
+  cursor: pointer;
+}
+
+.form-box button {
+  display: inline-block;
+  background: #1DB954;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form-box button:hover {
+  background: #1ed760;
+  transform: scale(1.05);
 }
