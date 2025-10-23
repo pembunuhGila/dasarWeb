@@ -4,6 +4,7 @@ header('Content-Type: application/json');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = $_POST["nama"] ?? '';
     $email = $_POST["email"] ?? '';
+    $password = $_POST["password"] ?? ''; // Ambil nilai password
     $errors_list = array();
 
     if (empty($nama)) {
@@ -14,6 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors_list[] = "Email harus diisi.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors_list[] = "Format email tidak valid.";
+    }
+
+    // LOGIKA VALIDASI PASSWORD (SERVER-SIDE)
+    if (empty($password)) {
+        $errors_list[] = "Password harus diisi.";
+    } elseif (strlen($password) < 8) {
+        $errors_list[] = "Password minimal 8 karakter.";
     }
 
     if (!empty($errors_list)) {

@@ -18,6 +18,10 @@
         <label for="email">Email:</label>
         <input type="text" id="email" name="email">
         <span id="email-error" style="color: red;"></span><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <span id="password-error" style="color: red;"></span><br>
 
         <button type="submit" id="submitBtn">Submit</button>
     </form>
@@ -31,10 +35,12 @@
             
             var nama = $("#nama").val();
             var email = $("#email").val();
+            var password = $("#password").val(); // Ambil nilai password
             var valid = true;
             
             $("#nama-error").text("");
             $("#email-error").text("");
+            $("#password-error").text(""); // Bersihkan error password
             $("#hasil-ajax").html("");
 
             if (nama === "") {
@@ -46,6 +52,15 @@
                 $("#email-error").text("Email harus diisi.");
                 valid = false;
             } 
+            
+            // LOGIKA VALIDASI PASSWORD (KLIEN-SIDE)
+            if (password === "") {
+                $("#password-error").text("Password harus diisi.");
+                valid = false;
+            } else if (password.length < 8) {
+                $("#password-error").text("Password minimal 8 karakter.");
+                valid = false;
+            }
             
             if (valid) {
                 const $form = $(this);
