@@ -12,12 +12,12 @@ if (mysqli_connect_errno()) {
 
 $sql = "INSERT IGNORE INTO user (id, username, password) VALUES (1, 'admin', '123')";
 
-if (mysqli_query($conn, $sql)) {
+if (mysqli_query($connect, $sql)) {
     echo "Data berhasil dimasukkan.";
 } else {
-    echo "Terjadi kesalahan: " . mysqli_error($conn);
+    echo "Terjadi kesalahan: " . mysqli_error($connect);
 }
 
-mysqli_close($conn);
+mysqli_close($connect);
 
 ?>
