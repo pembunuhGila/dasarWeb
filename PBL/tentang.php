@@ -1,112 +1,188 @@
 <?php
 // tentang.php - Halaman Tentang Kami Lab Data Technology
 $activePage = 'tentang';
-include 'conn.php';
-include 'navbar.php';
+include 'conn.php'; // Koneksi database
+include 'navbar.php'; // Navbar
 ?>
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/tentang.css">
 
 <!-- ============================================
-     HERO SECTION
+     HERO SECTION TENTANG KAMI
 ============================================= -->
-<section class="tentang-hero">
-  <div class="container">
-    <div class="hero-content">
-      <span class="hero-badge">About Us</span>
-      <h1>Lab Data Technology</h1>
-      <p>Pusat Riset dan Pembelajaran Teknologi Data untuk Generasi Digital</p>
+<div class="page-hero" style="background-image: url('assets/img/tentang-kami.jpeg');">
+  <div class="page-hero-overlay">
+    <div class="container">
+      <h1 class="page-title">Tentang Kami</h1>
+      <p class="page-subtitle">Mengenal Lab Data Technology lebih dekat</p>
     </div>
   </div>
-  <div class="hero-wave">
-    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
-    </svg>
+</div>
+
+<!-- ============================================
+     PROFIL LAB (TANPA STATS)
+============================================= -->
+<section class="section profil-section">
+  <div class="container">
+    <h2 class="section-title">Profil Lab Data Technology</h2>
+    <div class="profil-text-content">
+      <p>
+        Lab Data Technology merupakan salah satu laboratorium unggulan di Jurusan Teknologi Informasi, 
+        Politeknik Negeri Malang yang berfokus pada bidang teknologi data, analitik, dan kecerdasan buatan.
+      </p>
+      <p>
+        Laboratorium ini didirikan untuk mendukung kegiatan pembelajaran, penelitian, dan pengabdian 
+        masyarakat dalam bidang data science, big data, machine learning, dan teknologi informasi terkini.
+      </p>
+      <p>
+        Dengan fasilitas modern dan tim yang kompeten, Lab Data Technology berkomitmen untuk menghasilkan 
+        lulusan yang siap bersaing di industri teknologi global dan berkontribusi dalam pengembangan 
+        teknologi data di Indonesia.
+      </p>
+    </div>
   </div>
 </section>
 
 <!-- ============================================
-     VISI MISI SECTION
+     LOGO & IDENTITAS LAB
 ============================================= -->
-<section class="visi-misi-section">
+<section class="section logo-section">
   <div class="container">
-    <div class="visi-misi-grid">
+    <div class="logo-identity">
+      <!-- 🖼️ LOGO LAB - ganti dengan logo lab Anda -->
+      <div class="logo-box">
+        <img src="assets/img/logo-lab-dt.png" alt="Logo Lab Data Technology" class="lab-logo">
+      </div>
       
+      <div class="logo-description">
+        <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Identitas Lab</h2>
+        <h3 style="color: var(--primary-blue); font-size: 22px; margin-bottom: 12px;">Lab Data Technology</h3>
+        <p style="line-height: 1.8; color: #555; margin-bottom: 16px;">
+          Logo Lab Data Technology melambangkan integrasi antara teknologi, data, dan inovasi. 
+          Kombinasi warna biru dan hijau merepresentasikan profesionalisme, kepercayaan, dan pertumbuhan 
+          dalam bidang teknologi informasi.
+        </p>
+        <p style="line-height: 1.8; color: #555;">
+          Elemen-elemen dalam logo mencerminkan komitmen kami terhadap keunggulan akademik, 
+          penelitian berkualitas, dan pengembangan sumber daya manusia di bidang data technology.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     VISI & MISI
+============================================= -->
+<section class="section visi-misi-section">
+  <div class="container">
+    <h2 class="section-title">Visi & Misi</h2>
+    
+    <div class="visi-misi-wrapper">
       <!-- VISI -->
       <div class="vm-card visi-card">
         <div class="vm-icon">
-          <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-            <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
           </svg>
         </div>
         <h3>Visi</h3>
-        <p>Menjadi laboratorium terkemuka dalam riset dan pengembangan teknologi data yang inovatif, menghasilkan lulusan yang kompeten dan siap menghadapi tantangan era digital dengan kompetensi global.</p>
+        <p>
+          Menjadi laboratorium teknologi data terkemuka yang menghasilkan lulusan berkualitas, 
+          inovatif, dan kompetitif di tingkat nasional maupun internasional pada tahun 2030.
+        </p>
       </div>
-
+      
       <!-- MISI -->
       <div class="vm-card misi-card">
         <div class="vm-icon">
-          <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
           </svg>
         </div>
         <h3>Misi</h3>
-        <ul>
-          <li>Menyelenggarakan pendidikan dan pelatihan teknologi data berkualitas tinggi</li>
-          <li>Melakukan penelitian dan pengembangan di bidang data science, big data, dan AI</li>
-          <li>Membangun kolaborasi dengan industri dan institusi pendidikan terkemuka</li>
-          <li>Menyediakan fasilitas dan infrastruktur laboratorium yang modern</li>
-          <li>Menghasilkan publikasi ilmiah dan inovasi teknologi yang berdampak</li>
+        <ul class="misi-list">
+          <li>Menyelenggarakan pendidikan dan pembelajaran berbasis teknologi data yang berkualitas</li>
+          <li>Melaksanakan penelitian dan pengembangan di bidang data science dan big data</li>
+          <li>Menjalin kerjasama dengan industri dan institusi untuk meningkatkan kompetensi</li>
+          <li>Mengembangkan SDM yang profesional dan beretika dalam bidang teknologi informasi</li>
+          <li>Memberikan layanan pengabdian masyarakat melalui penerapan teknologi data</li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ============================================
-     SEJARAH SECTION
+     SEJARAH
 ============================================= -->
-<section class="sejarah-section">
+<section class="section sejarah-section">
   <div class="container">
-    <div class="sejarah-content">
-      <div class="sejarah-left">
-        <span class="section-label">Our Story</span>
-        <h2>Sejarah Lab Data Technology</h2>
-        <div class="sejarah-text">
-          <p>Jurusan Teknologi Informasi Politeknik Negeri Malang berawal dari pendirian Program Studi(Prodi) Diploma 3 (D3) Manajemen Informatika (MI) pada tanggal 24 juni 2005 berdasarkan SK nomer pendirian program studi 2001/D/T/2005. Pada surat keputusan tersebut Politeknik Negeri Malang diberikan ijin oleh Direktorat Jenderal Pendidikan Tinggi (Dikti) untuk menyelenggarakan pendidikan Program Studi Manajemen Informatika untuk jenjang program D3 dibawah Jurusan Teknik Elektro. Pada awal berdiri Prodi D3 MI memiliki 92 Mahasiswa, 1 Teknisi, 1 Administrasi, 6 Dosen tetap dan beberapa Dosen luar biasa. </p>
-          
-          <p>Pada tahun-tahun selanjutnya Prodi D3 MI berkembang sangat cepat hal ini ditandai dengan berkembangnya jumlah dari 92 di tahun 2005 menjadi 502 di tahun 2019. Peningkatan jumlah mahasiswa tersebut didukung dengan bertambahnya jumlah dosen, teknisi, tenaga kependidikan maupun sarana dan prasarana. Hal ini menunjukkan bahwa kepercayaan masyarakat terhadap Prodi D3 MI semakin meningkat. Pada sisi yang lain ternyata kebutuhan masyarakat dan industri terhadap lulusan Politeknik tidak cukup hanya dengan jenjang D3 tetapi juga pada jenjang sarjana yang selanjutnya dikenal dengan sebutan sarjana terapan atau Diploma 4 (D4).</p>
-          
-          <p>Pada tahun 2010 berdasar atas kebutuhan masyarakat dan indust terkait Program Diploma IV bidang Teknik informatika maka Polinema mendirikan program studi baru Teknik Informatika (TI) dengan jenjang Sarjana Terapan atau Diploma IV. Pada awal berdirinya di tahun 2010 jumlah peserta didik Program D-IV TI hanya terdiri dari 49 Mahasiwa, namun pada tahun 2015 jumlah peserta didik Prodi D-IV TI telah mengalami peningkatan menjadi 553 Mahasiswa. Perkembangan yang sangat pesat baik di Program Studi D-III MI dan D-IV TI mendorong pimpinan di Polinema untuk mengembangkan kedua program studi tersebut dibawa Jurusan baru terpisah dari Jurusan Teknik Elektro.</p>
-
-          <p>Pada tahun 2015 berdasarkan SK Direktur Nomor 53 dalam rangka peningkatan mutu pengelolaan dan optimasi sumber daya dibentuklah Jurusan Teknologi Informasi (JTI) yang menaungi. Prodi D3 MI dan D4 TI. Setelah menjadi Jurusan tersendiri kemajuan kedua Prodi tersebut sesuai dengan harapan hal ini terlihat pada saat buku Renstra JTI ini direvisi Jumlah mahasiswa di JTI telah mencapai 1289 mahasiswa yang terdiri dari 409 mahasiswa Prodi D3 MI dan 880 Mahasiswa Prodi D4 TI. Mulai tahun 2019 bertambah 3 program studi D3 diluar kampus utama (PSDKU) yaitu D3 Manajemen Informatika Kediri, D3 Manajemen Informatika Pamekasan, dan D3 Teknologi Informasi Lumajang.</p>
-
-          <p>Pada tahun 2020 melihat kebutuhan Industri dan instruksi dari Kementrian Pendidikan Kebudayaan, Riset dan Teknologi, Program Studi D3 Manajemen Informatika yang berada di kampus utama di ubah menjadi D4 Sistem Informasi Bisnis dan menambah 2 prodi baru yaitu D2 Pengembangan Piranti Lunak Situs (program jalur cepat) dan S2 Magister Terapan Rekayasa Teknologi Informasi.</p>
-
-          <div class="sejarah-stats">
-            <div class="stat-item">
-              <h3>500+</h3>
-              <p>Mahasiswa Terlibat</p>
-            </div>
-            <div class="stat-item">
-              <h3>50+</h3>
-              <p>Publikasi Ilmiah</p>
-            </div>
-            <div class="stat-item">
-              <h3>20+</h3>
-              <p>Proyek Riset</p>
-            </div>
-          </div>
+    <h2 class="section-title">Sejarah Lab Data Technology</h2>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <h4>2015</h4>
+          <h5>Pendirian Laboratorium</h5>
+          <p>
+            Lab Data Technology didirikan sebagai respons terhadap kebutuhan industri akan tenaga 
+            ahli di bidang analisis data dan teknologi informasi.
+          </p>
         </div>
       </div>
       
-      <div class="sejarah-right">
-        <div class="sejarah-image-wrapper">
-          <!-- 🖼️ GAMBAR SEJARAH: assets/img/tentang-kami.jpg -->
-          <img src="assets/img/tentang-kami.jpg" alt="Lab Data Technology">
-          <div class="image-decoration"></div>
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <h4>2017</h4>
+          <h5>Pengembangan Fasilitas</h5>
+          <p>
+            Penambahan perangkat komputer berperforma tinggi dan software analisis data untuk 
+            mendukung kegiatan praktikum dan penelitian mahasiswa.
+          </p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <h4>2019</h4>
+          <h5>Kerjasama Industri</h5>
+          <p>
+            Menjalin kerjasama dengan berbagai perusahaan teknologi untuk program magang, 
+            penelitian kolaboratif, dan sertifikasi internasional.
+          </p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <h4>2022</h4>
+          <h5>Akreditasi & Penghargaan</h5>
+          <p>
+            Lab Data Technology meraih pengakuan sebagai salah satu laboratorium terbaik di 
+            lingkungan Politeknik Negeri Malang dengan berbagai prestasi mahasiswa.
+          </p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <h4>2025</h4>
+          <h5>Era Digital & AI</h5>
+          <p>
+            Transformasi laboratorium dengan fokus pada Artificial Intelligence, Machine Learning, 
+            dan Big Data Analytics untuk menghadapi era Revolusi Industri 4.0.
+          </p>
         </div>
       </div>
     </div>
@@ -116,88 +192,82 @@ include 'navbar.php';
 <!-- ============================================
      STRUKTUR ORGANISASI
 ============================================= -->
-<section class="struktur-section">
+<section class="section struktur-section">
   <div class="container">
-    <div class="section-header">
-      <span class="section-label">Our Team</span>
-      <h2>Struktur Organisasi</h2>
-      <p>Tim profesional yang berdedikasi untuk kemajuan Lab Data Technology</p>
+    <h2 class="section-title">Struktur Organisasi</h2>
+    <p style="text-align: center; color: #666; margin-top: -20px; margin-bottom: 40px;">
+      Tim pengelola Lab Data Technology
+    </p>
+    
+    <div class="struktur-grid">
+      <!-- PLACEHOLDER untuk data dari database -->
+      
+      <!-- Kepala Lab -->
+      <div class="struktur-card kepala">
+        <div class="struktur-photo">
+          <!-- 🖼️ Foto: uploads/struktur/foto-nama.jpg -->
+          <div class="photo-placeholder">Foto</div>
+        </div>
+        <h4>Dr. Nama Dosen, M.Kom</h4>
+        <p class="jabatan">Kepala Laboratorium</p>
+        <p class="nip">NIP: 198501012010121001</p>
+      </div>
+      
+      <!-- Koordinator -->
+      <div class="struktur-card">
+        <div class="struktur-photo">
+          <div class="photo-placeholder">Foto</div>
+        </div>
+        <h4>Nama Koordinator, S.Kom, M.T</h4>
+        <p class="jabatan">Koordinator Praktikum</p>
+        <p class="nip">NIP: 199001012015041001</p>
+      </div>
+      
+      <!-- Teknisi -->
+      <div class="struktur-card">
+        <div class="struktur-photo">
+          <div class="photo-placeholder">Foto</div>
+        </div>
+        <h4>Nama Teknisi, A.Md</h4>
+        <p class="jabatan">Teknisi Laboratorium</p>
+        <p class="nip">NIP: 199505012018031001</p>
+      </div>
+      
+      <!-- Asisten Lab 1 -->
+      <div class="struktur-card">
+        <div class="struktur-photo">
+          <div class="photo-placeholder">Foto</div>
+        </div>
+        <h4>Nama Asisten 1</h4>
+        <p class="jabatan">Asisten Laboratorium</p>
+        <p class="nip">NIM: 2241720001</p>
+      </div>
+      
+      <!-- Asisten Lab 2 -->
+      <div class="struktur-card">
+        <div class="struktur-photo">
+          <div class="photo-placeholder">Foto</div>
+        </div>
+        <h4>Nama Asisten 2</h4>
+        <p class="jabatan">Asisten Laboratorium</p>
+        <p class="nip">NIM: 2241720002</p>
+      </div>
+      
+      <!-- Asisten Lab 3 -->
+      <div class="struktur-card">
+        <div class="struktur-photo">
+          <div class="photo-placeholder">Foto</div>
+        </div>
+        <h4>Nama Asisten 3</h4>
+        <p class="jabatan">Asisten Laboratorium</p>
+        <p class="nip">NIM: 2241720003</p>
+      </div>
+      
     </div>
-
-    <?php
-    // Ambil data struktur organisasi dari database
-    $stmt_struktur = $pdo->query("SELECT * FROM struktur ORDER BY tanggal_dibuat ASC");
-    $strukturData = $stmt_struktur->fetchAll();
-    ?>
-
-    <?php if(count($strukturData) > 0): ?>
-      <div class="struktur-grid">
-        <?php foreach($strukturData as $anggota): ?>
-          <div class="team-card">
-            <div class="team-photo">
-              <?php if($anggota['foto']): ?>
-                <!-- 🖼️ FOTO STRUKTUR: uploads/struktur/<?= $anggota['foto'] ?> -->
-                <img src="uploads/struktur/<?= htmlspecialchars($anggota['foto']) ?>" 
-                     alt="<?= htmlspecialchars($anggota['nama']) ?>">
-              <?php else: ?>
-                <div class="photo-placeholder">
-                  <svg width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                  </svg>
-                </div>
-              <?php endif; ?>
-            </div>
-            <div class="team-info">
-              <h4><?= htmlspecialchars($anggota['nama']) ?></h4>
-              <p><?= htmlspecialchars($anggota['jabatan']) ?></p>
-            </div>
-          </div>
-        <?php endforeach; ?>
-      </div>
-
-    <?php else: ?>
-      <!-- PLACEHOLDER jika belum ada data -->
-      <div class="struktur-grid">
-        <?php 
-        $placeholders = [
-          ['nama' => 'Yoppy Yunhasnawa, S.ST., M.Sc.', 'jabatan' => 'Kepala Laboratorium'],
-          ['nama' => 'Dika Rizky Yunianto, S.Kom., M.Kom.', 'jabatan' => 'Peneliti']
-        ];
-        
-        foreach($placeholders as $ph): ?>
-          <div class="team-card">
-            <div class="team-photo">
-              <div class="photo-placeholder">
-                <svg width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="team-info">
-              <h4><?= $ph['nama'] ?></h4>
-              <p><?= $ph['jabatan'] ?></p>
-            </div>
-          </div>
-        <?php endforeach; ?>
-      </div>
-    <?php endif; ?>
-
-  </div>
-</section>
-
-<!-- ============================================
-     CTA SECTION
-============================================= -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-content">
-      <h2>Bergabunglah dengan Kami</h2>
-      <p>Mari bersama membangun masa depan teknologi data Indonesia</p>
-      <div class="cta-buttons">
-        <a href="kontak.php" class="cta-btn primary">Hubungi Kami</a>
-        <a href="publikasi.php" class="cta-btn secondary">Lihat Publikasi</a>
-      </div>
-    </div>
+    
+    <p style="text-align: center; margin-top: 40px; color: #888; font-size: 14px; font-style: italic;">
+      * Data struktur organisasi akan diambil dari database secara dinamis
+    </p>
   </div>
 </section>
 

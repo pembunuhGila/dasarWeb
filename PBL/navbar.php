@@ -30,8 +30,8 @@ $activePage = basename($_SERVER['PHP_SELF'], ".php");
           <a href="fasilitas.php">Fasilitas</a>
         </li>
 
-        <li class="<?= $activePage == 'berita' ? 'active' : '' ?>">
-          <a href="berita.php">Berita</a>
+        <li class="<?= $activePage == 'konten' ? 'active' : '' ?>">
+          <a href="konten.php">Konten</a>
         </li>
 
         <li class="<?= $activePage == 'publikasi' ? 'active' : '' ?>">

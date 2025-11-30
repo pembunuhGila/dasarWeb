@@ -1,121 +1,311 @@
 <?php
 // galeri.php - Halaman Galeri Lab Data Technology
 $activePage = 'galeri';
-include 'conn.php';
-include 'navbar.php';
+include 'conn.php'; // Koneksi database
+include 'navbar.php'; // Navbar
 ?>
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/galeri.css">
 
 <!-- ============================================
-     HERO SECTION
+     HERO SECTION GALERI
 ============================================= -->
-<section class="galeri-hero">
-  <div class="container">
-    <div class="hero-content">
-      <h1>Galeri Lab Data Technology</h1>
-      <p>Dokumentasi kegiatan, fasilitas, dan momen berkesan di laboratorium kami</p>
+<div class="page-hero" style="background-image: url('assets/img/tentang-kami.jpeg');">
+  <div class="page-hero-overlay">
+    <div class="container">
+      <h1 class="page-title">Galeri</h1>
+      <p class="page-subtitle">Dokumentasi kegiatan dan suasana Lab Data Technology</p>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ============================================
-     GALERI GRID SECTION
+     GALERI SECTION
 ============================================= -->
-<section class="galeri-section">
+<section class="section galeri-section">
   <div class="container">
+    <div class="galeri-intro">
+      <p>Koleksi foto dan dokumentasi berbagai kegiatan di Lab Data Technology, mulai dari praktikum, 
+      penelitian, seminar, hingga kegiatan kolaborasi dengan industri dan institusi lainnya.</p>
+    </div>
     
-    <?php
-    // Ambil semua data galeri dari database
-    $stmt_galeri = $pdo->query("SELECT * FROM galeri ORDER BY tanggal_dibuat DESC");
-    $galeriData = $stmt_galeri->fetchAll();
-    ?>
-
-    <?php if(count($galeriData) > 0): ?>
-      <!-- GALERI GRID DARI DATABASE -->
-      <div class="galeri-grid">
-        <?php foreach($galeriData as $index => $item): ?>
-          <div class="galeri-item" data-index="<?= $index ?>">
-            <!-- 🖼️ GAMBAR GALERI: uploads/galeri/<?= $item['gambar'] ?> -->
-            <img src="uploads/galeri/<?= htmlspecialchars($item['gambar']) ?>" 
-                 alt="<?= htmlspecialchars($item['judul']) ?>">
-            <div class="galeri-overlay">
-              <div class="overlay-content">
-                <h3><?= htmlspecialchars($item['judul']) ?></h3>
-                <span class="view-icon">
-                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-                  </svg>
-                </span>
-              </div>
-            </div>
+    <!-- FILTER (Optional - bisa ditambahkan nanti) -->
+    <!-- <div class="galeri-filter">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="praktikum">Praktikum</button>
+      <button class="filter-btn" data-filter="penelitian">Penelitian</button>
+      <button class="filter-btn" data-filter="event">Event</button>
+    </div> -->
+    
+    <!-- GALERI GRID -->
+    <div class="galeri-grid">
+      
+      <!-- Item 1 -->
+      <div class="galeri-item">
+        <div class="galeri-image">
+          <div class="galeri-placeholder">Foto Kegiatan</div>
+        </div>
+        
+        <div class="galeri-overlay">
+          <div class="galeri-content">
+            <h3>Praktikum Machine Learning</h3>
+            <p>Mahasiswa sedang melakukan praktikum machine learning menggunakan Python dan TensorFlow</p>
+            
+            <button class="view-btn" onclick="openLightbox('placeholder', 'Praktikum Machine Learning', 'Mahasiswa sedang melakukan praktikum')">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              Lihat Detail
+            </button>
           </div>
-        <?php endforeach; ?>
+        </div>
       </div>
-
-    <?php else: ?>
-      <!-- PLACEHOLDER jika belum ada data -->
-      <div class="galeri-empty">
-        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-        </svg>
-        <h3>Belum Ada Galeri</h3>
-        <p>Galeri foto dan dokumentasi akan ditampilkan di sini</p>
+      
+      <!-- Item 2 -->
+      <div class="galeri-item">
+        <div class="galeri-image">
+          <div class="galeri-placeholder">Foto Kegiatan</div>
+        </div>
+        <div class="galeri-overlay">
+          <div class="galeri-content">
+            <h3>Workshop Data Science</h3>
+            <p>Workshop data science bersama praktisi industri tentang big data analytics</p>
+            <button class="view-btn">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              Lihat Detail
+            </button>
+          </div>
+        </div>
       </div>
-    <?php endif; ?>
-
-    <!-- Pagination (opsional) -->
-    <?php if(count($galeriData) > 12): ?>
-      <div class="galeri-pagination">
-        <button class="pagination-btn" id="prevBtn" disabled>
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M15 19l-7-7 7-7"/>
-          </svg>
-        </button>
-        <span class="pagination-info">
-          <span id="currentPage">1</span> of <span id="totalPages">1</span>
-        </span>
-        <button class="pagination-btn" id="nextBtn">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M9 5l7 7-7 7"/>
-          </svg>
-        </button>
+      
+      <!-- Item 3 -->
+      <div class="galeri-item">
+        <div class="galeri-image">
+          <div class="galeri-placeholder">Foto Kegiatan</div>
+        </div>
+        <div class="galeri-overlay">
+          <div class="galeri-content">
+            <h3>Penelitian Kolaboratif</h3>
+            <p>Tim peneliti lab sedang melakukan riset kolaboratif dengan industri teknologi</p>
+            <button class="view-btn">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              Lihat Detail
+            </button>
+          </div>
+        </div>
       </div>
-    <?php endif; ?>
-
+      
+      <!-- Item 4 -->
+      <div class="galeri-item">
+        <div class="galeri-image">
+          <div class="galeri-placeholder">Foto Kegiatan</div>
+        </div>
+        <div class="galeri-overlay">
+          <div class="galeri-content">
+            <h3>Seminar Teknologi AI</h3>
+            <p>Seminar nasional tentang perkembangan artificial intelligence di Indonesia</p>
+            <button class="view-btn">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              Lihat Detail
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item 5 -->
+      <div class="galeri-item">
+        <div class="galeri-image">
+          <div class="galeri-placeholder">Foto Kegiatan</div>
+        </div>
+        <div class="galeri-overlay">
+          <div class="galeri-content">
+            <h3>Kompetisi Data Mining</h3>
+            <p>Mahasiswa berhasil meraih juara dalam kompetisi data mining tingkat nasional</p>
+            <button class="view-btn">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              Lihat Detail
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item 6 -->
+      <div class="galeri-item">
+        <div class="galeri-image">
+          <div class="galeri-placeholder">Foto Kegiatan</div>
+        </div>
+        <div class="galeri-overlay">
+          <div class="galeri-content">
+            <h3>Kunjungan Industri</h3>
+            <p>Kunjungan ke perusahaan teknologi untuk mempelajari implementasi big data</p>
+            <button class="view-btn">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              Lihat Detail
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item 7-9 -->
+      <div class="galeri-item">
+        <div class="galeri-image">
+          <div class="galeri-placeholder">Foto Kegiatan</div>
+        </div>
+        <div class="galeri-overlay">
+          <div class="galeri-content">
+            <h3>Pelatihan Deep Learning</h3>
+            <p>Pelatihan intensif deep learning untuk mahasiswa dan dosen</p>
+            <button class="view-btn">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              Lihat Detail
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="galeri-item">
+        <div class="galeri-image">
+          <div class="galeri-placeholder">Foto Kegiatan</div>
+        </div>
+        <div class="galeri-overlay">
+          <div class="galeri-content">
+            <h3>Presentasi Tugas Akhir</h3>
+            <p>Mahasiswa mempresentasikan hasil penelitian tugas akhir di bidang data science</p>
+            <button class="view-btn">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              Lihat Detail
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="galeri-item">
+        <div class="galeri-image">
+          <div class="galeri-placeholder">Foto Kegiatan</div>
+        </div>
+        <div class="galeri-overlay">
+          <div class="galeri-content">
+            <h3>Hackathon Lab DT</h3>
+            <p>Event hackathon internal lab dengan tema smart city dan IoT analytics</p>
+            <button class="view-btn">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              Lihat Detail
+            </button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
   </div>
 </section>
 
 <!-- ============================================
      LIGHTBOX MODAL
 ============================================= -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="closeLightbox">
-    <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path d="M6 18L18 6M6 6l12 12"/>
-    </svg>
-  </button>
-  
-  <button class="lightbox-nav lightbox-prev" id="prevImage">
-    <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path d="M15 19l-7-7 7-7"/>
-    </svg>
-  </button>
-  
+<div class="lightbox-modal" id="lightboxModal">
+  <div class="lightbox-overlay" onclick="closeLightbox()"></div>
   <div class="lightbox-content">
-    <img id="lightboxImage" src="" alt="">
-    <div class="lightbox-caption">
-      <h3 id="lightboxTitle"></h3>
-      <p id="lightboxDate"></p>
+    <button class="lightbox-close" onclick="closeLightbox()">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    
+    <div class="lightbox-image-wrapper">
+      <img id="lightboxImage" src="" alt="">
     </div>
+    
+    <div class="lightbox-info">
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxDesc"></p>
+    </div>
+    
+    <!-- Navigation arrows (optional untuk prev/next) -->
+    <!-- <button class="lightbox-nav prev" onclick="navigateLightbox(-1)">‹</button>
+    <button class="lightbox-nav next" onclick="navigateLightbox(1)">›</button> -->
   </div>
-  
-  <button class="lightbox-nav lightbox-next" id="nextImage">
-    <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path d="M9 5l7 7-7 7"/>
-    </svg>
-  </button>
 </div>
 
-<script src="assets/js/galeri.js"></script>
 <?php include 'footer.php'; ?>
+
+<script>
+// ============================================
+// LIGHTBOX FUNCTIONS
+// ============================================
+function openLightbox(foto, judul, deskripsi) {
+  const modal = document.getElementById('lightboxModal');
+  const image = document.getElementById('lightboxImage');
+  const title = document.getElementById('lightboxTitle');
+  const desc = document.getElementById('lightboxDesc');
+  
+  // Set content
+  image.src = 'uploads/galeri/' + foto;
+  image.alt = judul;
+  title.textContent = judul;
+  desc.textContent = deskripsi || '';
+  
+  // Show modal
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  const modal = document.getElementById('lightboxModal');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeLightbox();
+  }
+});
+
+
+</script>

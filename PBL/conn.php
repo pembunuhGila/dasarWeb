@@ -3,7 +3,7 @@
 // Sesuaikan credential DB-mu
 $DB_HOST = 'localhost';
 $DB_PORT = '5432';
-$DB_NAME = 'lab_dt';
+$DB_NAME = 'db_LabDT';
 $DB_USER = 'postgres';
 $DB_PASS = 'crazyMamad13*';
 
